@@ -1,6 +1,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const team = require('./lib/team.js');
+const { Manager } = require('./lib/team.js');
 
 //Questions to ask the user from inquirer, specifically for the very first team memeber, the manager.
 const managerQuestions = [
@@ -38,7 +39,8 @@ const teamMembers = [];
 function init() {
     inquirer
     .prompt(managerQuestions).then((answers) => {
-        console.log(answers);
+        const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOfficeNumber);
+        teamMembers.push(manager);
     })
     .catch((error) => {
         if (error.isTtyError) {
