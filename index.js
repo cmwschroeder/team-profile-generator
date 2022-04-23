@@ -1,28 +1,28 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const team = require('./lib/team.js');
-const { Manager } = require('./lib/team.js');
+const { Manager, Engineer, Intern } = require('./lib/team.js');
 
 //Questions to ask the user from inquirer, specifically for the very first team memeber, the manager.
 const managerQuestions = [
   {
     type: 'input',
-    name: 'managerName',
+    name: 'name',
     message: "Enter team manager's name: ",
   },
   {
     type: 'input',
-    name: 'managerId',
+    name: 'id',
     message: "Enter team manager's id: ",
   },
   {
     type: 'input',
-    name: 'managerEmail',
+    name: 'email',
     message: "Enter team manager's email: ",
   },
   {
     type: 'input',
-    name: 'managerOfficeNumber',
+    name: 'officeNo',
     message: "Enter team manager's office number: ",
   },
   {
@@ -36,22 +36,22 @@ const managerQuestions = [
 const engineerQuestions = [
   {
     type: 'input',
-    name: 'managerName',
+    name: 'name',
     message: "Enter engineer's name: ",
   },
   {
     type: 'input',
-    name: 'managerId',
+    name: 'id',
     message: "Enter enigineer's id: ",
   },
   {
     type: 'input',
-    name: 'managerEmail',
+    name: 'email',
     message: "Enter engineer's email: ",
   },
   {
     type: 'input',
-    name: 'managerOfficeNumber',
+    name: 'github',
     message: "Enter engineer's github username: ",
   },
   {
@@ -65,22 +65,22 @@ const engineerQuestions = [
 const internQuestions = [
   {
     type: 'input',
-    name: 'managerName',
+    name: 'name',
     message: "Enter intern's name: ",
   },
   {
     type: 'input',
-    name: 'managerId',
+    name: 'id',
     message: "Enter intern's id: ",
   },
   {
     type: 'input',
-    name: 'managerEmail',
+    name: 'email',
     message: "Enter intern's email: ",
   },
   {
     type: 'input',
-    name: 'managerOfficeNumber',
+    name: 'school',
     message: "Enter intern's school: ",
   },
   {
@@ -96,27 +96,10 @@ const teamMembers = [];
 
 //function will take in user input and create an engineer class object and add it to the team
 function addEngineer() {
-
-}
-
-//function will take in user input and create an intern class object and add it to the team
-function addIntern() {
-
-}
-
-//create HTML page and write the file
-function makePage() {
-
-}
-
-/*
- * This function will run when the program is ran, takes in user inputs for manager since we always need a manager, then will ask for 
- */
-function init() {
-    inquirer
-    .prompt(managerQuestions).then((answers) => {
-        const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOfficeNumber);
-        teamMembers.push(manager);
+  inquirer
+    .prompt(engineerQuestions).then((answers) => {
+        const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
+        teamMembers.push(engineer);
         if(answers.next == "Add an Engineer") {
           addEngineer();
         } else if (answers.next == "Add an Intern") {
@@ -125,11 +108,47 @@ function init() {
           makePage();
         }
     })
-    .catch((error) => {
-        if (error.isTtyError) {
-            // Prompt couldn't be rendered in the current environment
-            console.log("Error with inputs")
-          }
+}
+
+//function will take in user input and create an intern class object and add it to the team
+function addIntern() {
+  inquirer
+  .prompt(internQuestions).then((answers) => {
+      const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
+      teamMembers.push(intern);
+      if(answers.next == "Add an Engineer") {
+        addEngineer();
+      } else if (answers.next == "Add an Intern") {
+        addIntern();
+      } else {
+        makePage();
+      }
+  })
+}
+
+//create HTML page and write the file
+function makePage() {
+  for(let i = 0; i < teamMembers.length; i++) {
+    console.log(teamMembers[i].getName());
+    console.log(teamMembers[i].getRole());
+  }
+}
+
+/*
+ * This function will run when the program is ran, takes in user inputs for manager since we always need a manager, then will ask for 
+ */
+function init() {
+    inquirer
+    .prompt(managerQuestions).then((answers) => {
+        const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNo);
+        teamMembers.push(manager);
+        if(answers.next == "Add an Engineer") {
+          addEngineer();
+        } else if (answers.next == "Add an Intern") {
+          addIntern();
+        } else {
+          makePage();
+        }
     })
 }
 
