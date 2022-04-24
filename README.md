@@ -54,7 +54,9 @@ Example inputs:
 
 Example page created from inputs:  
 
-![Webpage written by console inputs](./images/screenshot-three.png)
+![Webpage written by console inputs](./images/screenshot-three.png)  
+
+Link to video showing usage: https://www.youtube.com/watch?v=YvlRWNYMtF4
 
 ## Questions
 If you have any questions you can reach me at:  
