@@ -26,12 +26,6 @@ const managerQuestions = [
     name: 'officeNo',
     message: "Enter team manager's office number: ",
   },
-  {
-    type: 'list',
-    name: 'next',
-    message: 'Would you like to: ',
-    choices: ['Add an Engineer', 'Add an Intern', 'Finish building team'],
-  },
 ];
 
 const engineerQuestions = [
@@ -54,12 +48,6 @@ const engineerQuestions = [
     type: 'input',
     name: 'github',
     message: "Enter engineer's github username: ",
-  },
-  {
-    type: 'list',
-    name: 'next',
-    message: 'Would you like to: ',
-    choices: ['Add an Engineer', 'Add an Intern', 'Finish building team'],
   },
 ];
 
@@ -84,13 +72,16 @@ const internQuestions = [
     name: 'school',
     message: "Enter intern's school: ",
   },
+];
+
+const menuQuestion = [
   {
     type: 'list',
     name: 'next',
     message: 'Would you like to: ',
     choices: ['Add an Engineer', 'Add an Intern', 'Finish building team'],
-  },
-];
+  }
+]
 
 // This will hold all of the employees
 const teamMembers = [];
@@ -101,13 +92,7 @@ function addEngineer() {
     .prompt(engineerQuestions).then((answers) => {
         const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
         teamMembers.push(engineer);
-        if(answers.next == "Add an Engineer") {
-          addEngineer();
-        } else if (answers.next == "Add an Intern") {
-          addIntern();
-        } else {
-          makePage();
-        }
+        menu();
     })
 }
 
@@ -117,6 +102,13 @@ function addIntern() {
   .prompt(internQuestions).then((answers) => {
       const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
       teamMembers.push(intern);
+      menu();
+  })
+}
+
+function menu() {
+  inquirer
+  .prompt(menuQuestion).then((answers) => {
       if(answers.next == "Add an Engineer") {
         addEngineer();
       } else if (answers.next == "Add an Intern") {
@@ -147,13 +139,7 @@ function init() {
     .prompt(managerQuestions).then((answers) => {
         const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNo);
         teamMembers.push(manager);
-        if(answers.next == "Add an Engineer") {
-          addEngineer();
-        } else if (answers.next == "Add an Intern") {
-          addIntern();
-        } else {
-          makePage();
-        }
+        menu();
     })
 }
 
