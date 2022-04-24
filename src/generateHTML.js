@@ -1,5 +1,3 @@
-const { Manager, Engineer, Intern } = require('../lib/team.js');
-
 // This function will generatet the HTML card for a manager
 function writeManager(manager) {
     return `
@@ -14,7 +12,7 @@ function writeManager(manager) {
                             <tr>
                                 <th>ID: ${manager.getId()}</th>
                             <tr class="active">
-                                <th>Email: ${manager.getEmail()}</th>
+                                <th>Email: <a href="mailto:${manager.getEmail()}" class="btn btn-ghost text-blue-600 normal-case" target="_blank">${manager.getEmail()}</a></th>
                             </tr>
                             <tr>
                                 <th>Office Number ${manager.getOfficeNumber()}</th>
@@ -39,7 +37,7 @@ function writeEngineer(engineer) {
                             <tr>
                                 <th>ID: ${engineer.getId()}</th>
                             <tr class="active">
-                                <th>Email: ${engineer.getEmail()}</th>
+                                <th>Email:  <a href="mailto:${engineer.getEmail()}" class="btn btn-ghost text-blue-600 normal-case" target="_blank">${engineer.getEmail()}</a></th>
                             </tr>
                             <tr>
                                 <th>Github: <a href="https://github.com/${engineer.getGithub()}" class="btn btn-ghost text-blue-600 normal-case" target="_blank">${engineer.getGithub()}</a></th>
@@ -64,7 +62,7 @@ function writeIntern(intern) {
                             <tr>
                                 <th>ID: ${intern.getId()}</th>
                             <tr class="active">
-                                <th>Email: ${intern.getEmail()}</th>
+                                <th>Email:  <a href="mailto:${intern.getEmail()}" class="btn btn-ghost text-blue-600 normal-case" target="_blank">${intern.getEmail()}</a></th>
                             </tr>
                             <tr>
                                 <th>School: ${intern.getSchool()}</th>
