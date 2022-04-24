@@ -2,6 +2,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const team = require('./lib/team.js');
 const { Manager, Engineer, Intern } = require('./lib/team.js');
+const generateMarkdown = require("./src/generateHTML.js");
 
 //Questions to ask the user from inquirer, specifically for the very first team memeber, the manager.
 const managerQuestions = [
@@ -128,10 +129,14 @@ function addIntern() {
 
 //create HTML page and write the file
 function makePage() {
-  for(let i = 0; i < teamMembers.length; i++) {
-    console.log(teamMembers[i].getName());
-    console.log(teamMembers[i].getRole());
-  }
+  var page = generateMarkdown(teamMembers);
+  fs.writeFile('./dist/index.html', page, (err) => {
+    if (err)
+      console.log(err);
+    else {
+      console.log("file written");
+    }
+  });
 }
 
 /*
