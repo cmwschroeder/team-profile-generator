@@ -29,7 +29,7 @@ const managerQuestions = [
   {
     type: 'list',
     name: 'next',
-    message: 'Would you like to: a',
+    message: 'Would you like to: ',
     choices: ['Add an Engineer', 'Add an Intern', 'Finish building team'],
   },
 ];
@@ -58,7 +58,7 @@ const engineerQuestions = [
   {
     type: 'list',
     name: 'next',
-    message: 'Would you like to: a',
+    message: 'Would you like to: ',
     choices: ['Add an Engineer', 'Add an Intern', 'Finish building team'],
   },
 ];
@@ -87,7 +87,7 @@ const internQuestions = [
   {
     type: 'list',
     name: 'next',
-    message: 'Would you like to: a',
+    message: 'Would you like to: ',
     choices: ['Add an Engineer', 'Add an Intern', 'Finish building team'],
   },
 ];
