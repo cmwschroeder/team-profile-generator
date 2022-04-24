@@ -10,12 +10,12 @@ function writeManager(manager) {
                     <table class="table w-full">
                         <tbody>
                             <tr>
-                                <th>ID: ${manager.getId()}</th>
+                                <td>ID: ${manager.getId()}</td>
                             <tr class="active">
-                                <th>Email: <a href="mailto:${manager.getEmail()}" class="btn btn-ghost text-blue-600 normal-case" target="_blank">${manager.getEmail()}</a></th>
+                                <td>Email: <a href="mailto:${manager.getEmail()}" class="btn btn-ghost text-blue-600 normal-case" target="_blank">${manager.getEmail()}</a></th>
                             </tr>
                             <tr>
-                                <th>Office Number ${manager.getOfficeNumber()}</th>
+                                <td>Office Number ${manager.getOfficeNumber()}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -35,12 +35,12 @@ function writeEngineer(engineer) {
                     <table class="table w-full">
                         <tbody>
                             <tr>
-                                <th>ID: ${engineer.getId()}</th>
+                                <td>ID: ${engineer.getId()}</td>
                             <tr class="active">
-                                <th>Email:  <a href="mailto:${engineer.getEmail()}" class="btn btn-ghost text-blue-600 normal-case" target="_blank">${engineer.getEmail()}</a></th>
+                                <td>Email:  <a href="mailto:${engineer.getEmail()}" class="btn btn-ghost text-blue-600 normal-case" target="_blank">${engineer.getEmail()}</a></td>
                             </tr>
                             <tr>
-                                <th>Github: <a href="https://github.com/${engineer.getGithub()}" class="btn btn-ghost text-blue-600 normal-case" target="_blank">${engineer.getGithub()}</a></th>
+                                <td>Github: <a href="https://github.com/${engineer.getGithub()}" class="btn btn-ghost text-blue-600 normal-case" target="_blank">${engineer.getGithub()}</a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -60,12 +60,12 @@ function writeIntern(intern) {
                     <table class="table w-full">
                         <tbody>
                             <tr>
-                                <th>ID: ${intern.getId()}</th>
+                                <td>ID: ${intern.getId()}</td>
                             <tr class="active">
-                                <th>Email:  <a href="mailto:${intern.getEmail()}" class="btn btn-ghost text-blue-600 normal-case" target="_blank">${intern.getEmail()}</a></th>
+                                <td>Email:  <a href="mailto:${intern.getEmail()}" class="btn btn-ghost text-blue-600 normal-case" target="_blank">${intern.getEmail()}</a></td>
                             </tr>
                             <tr>
-                                <th>School: ${intern.getSchool()}</th>
+                                <td>School: ${intern.getSchool()}</td>
                             </tr>
                         </tbody>
                     </table>

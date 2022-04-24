@@ -28,6 +28,7 @@ const managerQuestions = [
   },
 ];
 
+//questions for any of the engineer team members
 const engineerQuestions = [
   {
     type: 'input',
@@ -51,6 +52,7 @@ const engineerQuestions = [
   },
 ];
 
+//questions for the intern team member(s)
 const internQuestions = [
   {
     type: 'input',
@@ -74,6 +76,7 @@ const internQuestions = [
   },
 ];
 
+//question to ask to determine if we are adding more team members or if we are done
 const menuQuestion = [
   {
     type: 'list',
@@ -106,6 +109,7 @@ function addIntern() {
   })
 }
 
+//this function handles the menu for selecting if we want to add another team member(and which), or if we are done
 function menu() {
   inquirer
   .prompt(menuQuestion).then((answers) => {
@@ -143,4 +147,6 @@ function init() {
     })
 }
 
+
+//call to start the inquirer prompts on program start
 init();

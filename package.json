@@ -4,7 +4,8 @@
   "description": "[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)\r # Team Profile Generator",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
