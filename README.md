@@ -9,7 +9,7 @@ This program will build you a webpage featuring all of your team members. If you
 
 * [Technologies](#technologies)
 * [Installation](#installation)
-* [Test]
+* [Test](#test)
 * [Usage](#usage)
 * [Questions](#questions)
 * [License](#license)
